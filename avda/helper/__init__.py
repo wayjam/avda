@@ -1,1 +1,3 @@
-from .avid import get_avid_from_title
+class Runner:
+    def __init__(self, **kwargs):
+        self.__dict__.update(kwargs)

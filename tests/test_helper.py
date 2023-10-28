@@ -1,4 +1,4 @@
-from avda.helper import get_avid_from_title
+from avda.helper import avid
 import pytest
 
 
@@ -15,4 +15,18 @@ get_avid_from_title_testdata = [
     ids=[i for i in range(1, len(get_avid_from_title_testdata) + 1)],
 )
 def test_get_avid_from_title(title, expected: str):
-    assert get_avid_from_title(title) == expected
+    assert avid.get_avid_from_title(title) == expected
+
+
+@pytest.mark.parametrize(
+    "filename,expected",
+    [
+        ("ABP-123.nfo", "ABP-123"),
+        ("ssis-456.NFO", "SSIS-456"),
+        ("ipz-789-c.nfo", "IPZ-789"),
+        ("midv-001-UC.nfo", "MIDV-001"),
+        ("heyzo-6666.nfo", "HEYZO-6666"),
+    ],
+)
+def test_get_avid_from_filename(filename, expected: str):
+    assert avid.get_avid_from_filename(filename) == expected

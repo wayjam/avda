@@ -1,5 +1,7 @@
 import re
 import typing
+import os
+import fnmatch
 
 
 def get_avid_from_title(title: str) -> typing.Optional[str]:
@@ -45,4 +47,16 @@ def get_avid_from_filename(filename: str) -> typing.Optional[str]:
                 return v(filename)
     except:
         pass
-    return None
+
+    (number, _) = os.path.splitext(filename)
+    number = number.upper()
+
+    if number.endswith("-UC"):
+        return number.rstrip("-UC")
+    if number.endswith("-C"):
+        return number.rstrip("-C")
+    if number.endswith("-U"):
+        return number.rstrip("-U")
+
+    number = re.sub(fnmatch.translate("*-CD*"), "", number)
+    return number

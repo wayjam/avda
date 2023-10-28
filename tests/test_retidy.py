@@ -1,14 +1,14 @@
-from avda.retidy import RetidyFielsRunner, RunMode, VideoFilePathOpts
+from avda import retidy
 
 
 def test_retidy():
-    runner = RetidyFielsRunner(
+    runner = retidy.RetidyFilesRunner(
         dry_run=True,
         input_dir="/mnt/disk/porn",
         output_dir="/mnt/disk/porn",
-        video_file_path_opts=VideoFilePathOpts(
+        video_file_path_opts=retidy.VideoFilePathOpts(
             format="$(actor)/$(avid)/$(avid)",
         ),
-        run_mode=RunMode.FLAT,
+        run_mode=retidy.RunMode.FLAT,
     )
     runner.run()
