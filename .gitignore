@@ -242,3 +242,5 @@ tags
 [._]*.un~
 
 # End of https://www.toptal.com/developers/gitignore/api/python,vim,linux,macos
+
+tests/local-test.sh

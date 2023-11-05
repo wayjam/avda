@@ -11,6 +11,8 @@ requests = "^2.31.0"
 click = "^8.1.7"
 lxml = "^4.9.3"
 cchardet = "^2.1.7"
+notion-client = "^2.0.0"
+jellyfin-apiclient-python = "^1.9.2"
 
 
 [tool.poetry.group.dev.dependencies]
